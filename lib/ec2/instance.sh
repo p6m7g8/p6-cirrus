@@ -79,42 +79,6 @@ p6_cirrus_instance_create() {
 ######################################################################
 #<
 #
-# Function: p6_cirrus_instance_ubuntu18_create()
-#
-#>
-######################################################################
-p6_cirrus_instance_ubuntu18_create() {
-
-    p6_cirrus_instance_create "ubuntu20"
-}
-
-######################################################################
-#<
-#
-# Function: p6_cirrus_instance_rhel8_create()
-#
-#>
-######################################################################
-p6_cirrus_instance_rhel8_create() {
-
-    p6_cirrus_instance_create "rhel-8"
-}
-
-######################################################################
-#<
-#
-# Function: p6_cirrus_instance_amazon_create()
-#
-#>
-######################################################################
-p6_cirrus_instance_amazon_create() {
-
-    p6_cirrus_instance_create "amazon2"
-}
-
-######################################################################
-#<
-#
 # Function: p6_cirrus_instance_bastion_create()
 #
 #>
@@ -122,32 +86,4 @@ p6_cirrus_instance_amazon_create() {
 p6_cirrus_instance_bastion_create() {
 
     p6_cirrus_instance_create "bastion"
-}
-
-######################################################################
-#<
-#
-# Function: p6_cirrus_instance_irc_create()
-#
-#>
-######################################################################
-p6_cirrus_instance_irc_create() {
-
-    local ami_id
-    ami_id=$(p6_aws_svc_ec2_amis_freebsd13_latest)
-    p6_cirrus_instance_create "irc" "$ami_id" "t2.micro"
-}
-
-######################################################################
-#<
-#
-# Function: p6_cirrus_instance_jenkins_create()
-#
-#>
-######################################################################
-p6_cirrus_instance_jenkins_create() {
-
-    local ami_id
-    ami_id=$(p6_aws_svc_ec2_amis_freebsd13_latest)
-    p6_cirrus_instance_create "jenkins" "$ami_id" "m4.large"
 }
