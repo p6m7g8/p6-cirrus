@@ -14,10 +14,10 @@ p6_cirrus_ssh_connect_public() {
   local instance_id
   instance_id=$(p6_aws_svc_ec2_instance_id_from_name_tag "$tag")
 
-  cli="mssh $instance_id"
+  cli="aws ec2-instance-connect ssh --instance-id $instance_id --private-key-file ~/.ssh/$tag"
 
   p6_msg "$cli"
-  p6_remote_ssh_do "$cli"
+  p6_macosx_osa_iterm_color_run "$tag" "p6_remote_ssh_do \"$cli\""
 
   p6_return_void
 }
