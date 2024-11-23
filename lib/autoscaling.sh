@@ -14,7 +14,6 @@
 #	subnet_type -
 #	OPTIONAL vpc_id - [$AWS_VPC_ID]
 #
-#  Depends:	 p6_aws
 #  Environment:	 AWS_VPC_ID
 #>
 ######################################################################

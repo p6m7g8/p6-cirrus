@@ -9,7 +9,6 @@
 #	account_id -
 #	provider -
 #
-#  Depends:	 p6_aws
 #  Environment:	 XXX
 #>
 ######################################################################
@@ -34,7 +33,6 @@ p6_cirrus_iam_role_saml_create() {
 #
 # Function: p6_cirrus_iam_password_policy_default()
 #
-#  Depends:	 p6_aws
 #>
 ######################################################################
 p6_cirrus_iam_password_policy_default() {
@@ -62,7 +60,6 @@ p6_cirrus_iam_password_policy_default() {
 #	role_full_path -
 #	policy_arn -
 #
-#  Depends:	 p6_aws
 #>
 ######################################################################
 p6_cirrus_iam_policy_to_role() {
@@ -88,7 +85,6 @@ p6_cirrus_iam_policy_to_role() {
 #	policy_description -
 #	policy_document -
 #
-#  Depends:	 p6_aws
 #>
 ######################################################################
 p6_cirrus_iam_policy_create() {

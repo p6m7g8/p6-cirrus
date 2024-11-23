@@ -1,12 +1,12 @@
 ######################################################################
 #<
 #
-# Function: p6_aws_svc_secretsmanager_get_secret(name)
+# Function: p6_aws_svc_secretsmanager_secret_create(name, value)
 #
-#  Arguments:
-#	name - The name of the secret or the full path of the secret
+#  Args:
+#	name -
+#	value -
 #
-#  Environment:	 ARN
 #>
 ######################################################################
 p6_aws_svc_secretsmanager_secret_create() {
