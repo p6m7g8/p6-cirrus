@@ -10,7 +10,6 @@
 #	sg_ids -
 #	key_name -
 #
-#  Depends:	 p6_aws
 #  Environment:	 ASSOCIATE_PUBLIC_IP_ADDRESS DELETE_ON_TERMINATE IMAGE_ID INSTANCE_TYPE KEY_NAME SECURITY_GROUPS TAG_NAME
 #>
 ######################################################################
@@ -23,17 +22,14 @@ p6_cirrus_ec2_launch_template_create() {
 
 	[ -n "$user_data" ] && user_data="--user-data=$user_data"
 
-	local launch_template_data
-	launch_template_data=$(
-		p6_aws_template_process "ec2/launch_configuration.json" \
+	local launch_template_data=$(p6_aws_template_process "ec2/launch_configuration.json" \
 			"ASSOCIATE_PUBLIC_IP_ADDRESS=true" \
 			"SECURITY_GROUPS=$sg_ids" \
 			"DELETE_ON_TERMINATE=true" \
 			"IMAGE_ID=$ami_id" \
 			"INSTANCE_TYPE=$instance_type" \
 			"TAG_NAME=$lt_name" \
-			"KEY_NAME=$key_name"
-	)
+			"KEY_NAME=$key_name")
 
 	p6_aws_cli_cmd ec2 create-launch-template "$lt_name" "'$launch_template_data'" --version-description "initial"
 }

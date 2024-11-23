@@ -7,7 +7,6 @@
 #	function_name -
 #	... - 
 #
-#  Depends:	 p6_aws p6_file
 #>
 ######################################################################
 p6_cirrus_lambda_invoke() {

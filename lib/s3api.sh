@@ -10,7 +10,6 @@
 #	false - 
 #	code - rc
 #
-#  Depends:	 p6_error p6_string
 #  Environment:	 EOF
 #>
 ######################################################################
@@ -21,8 +20,16 @@ p6_cirrus_s3api_bucket_delete_with_versioned_objects() {
         p6_error "bucket is a required argument"
         p6_return_false
     else
-        local cmd=$(
-            cat <<EOF
+        local cmd=$(_p6_cirrus_s3api_generate_delete_bucket_script "$bucket")
+        local rc=$(p6_run_write_cmd "python -c $cmd")
+        p6_return_code_as_code "$rc"
+    fi
+}
+
+_p6_cirrus_s3api_generate_delete_bucket_script() {
+    local bucket="$1"
+
+    cat <<EOF
 import boto3
 
 session = boto3.Session()
@@ -33,9 +40,4 @@ bucket.object_versions.delete()
 
 bucket.delete()
 EOF
-        )
-        local rc=$(p6_run_write_cmd "python -c $cmd")
-
-        p6_return_code_as_code "$rc"
-    fi
 }
