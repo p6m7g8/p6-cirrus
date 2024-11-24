@@ -111,14 +111,14 @@ p6_cirrus_iam_policy_create() {
 ######################################################################
 #<
 #
-# Function: p6_aws_svc_iam_role_service_linked_create(service)
+# Function: p6_cirrus_iam_role_service_linked_create(service)
 #
 #  Args:
 #	service -
 #
 #>
 ######################################################################
-p6_aws_svc_iam_role_service_linked_create() {
+p6_cirrus_iam_role_service_linked_create() {
 	local service="$1"
 
 	p6_aws_cli_cmd iam create-service-linked-role --aws-service-name "$service" || true
@@ -129,14 +129,14 @@ p6_aws_svc_iam_role_service_linked_create() {
 ######################################################################
 #<
 #
-# Function: p6_aws_svc_iam_role_service_linked_delete(service)
+# Function: p6_cirrus_iam_role_service_linked_delete(service)
 #
 #  Args:
 #	service -
 #
 #>
 ######################################################################
-p6_aws_svc_iam_role_service_linked_delete() {
+p6_cirrus_iam_role_service_linked_delete() {
 	local service="$1"
 
 	p6_aws_cli_cmd iam delete-service-linked-role --role-name "$service" || true

@@ -1,7 +1,7 @@
 ######################################################################
 #<
 #
-# Function: p6_aws_svc_alb_create(alb_name, [subnet_type=Public], [vpc_id=$AWS_VPC_ID_ID])
+# Function: p6_cirrus_alb_create(alb_name, [subnet_type=Public], [vpc_id=$AWS_VPC_ID_ID])
 #
 #  Args:
 #	alb_name -
@@ -11,7 +11,7 @@
 #  Environment:	 AWS_VPC_ID_ID XXX
 #>
 ######################################################################
-p6_aws_svc_alb_create() {
+p6_cirrus_alb_create() {
     local alb_name="$1"
     local subnet_type="${2:-Public}"
     local vpc_id="${3:-$AWS_VPC_ID_ID}"
@@ -28,7 +28,7 @@ p6_aws_svc_alb_create() {
 ######################################################################
 #<
 #
-# Function: p6_aws_svc_alb_listener_create(alb_arn, target_group_arn)
+# Function: p6_cirrus_alb_listener_create(alb_arn, target_group_arn)
 #
 #  Args:
 #	alb_arn -
@@ -37,7 +37,7 @@ p6_aws_svc_alb_create() {
 #  Environment:	 HTTP
 #>
 ######################################################################
-p6_aws_svc_alb_listener_create() {
+p6_cirrus_alb_listener_create() {
     local alb_arn="$1"
     local target_group_arn="$2"
 
@@ -55,7 +55,7 @@ p6_aws_svc_alb_listener_create() {
 ######################################################################
 #<
 #
-# Function: p6_aws_svc_alb_target_group_create(tg_name, [vpc_id=AWS_VPC_ID_ID])
+# Function: p6_cirrus_alb_target_group_create(tg_name, [vpc_id=AWS_VPC_ID_ID])
 #
 #  Args:
 #	tg_name -
@@ -64,7 +64,7 @@ p6_aws_svc_alb_listener_create() {
 #  Environment:	 AWS_VPC_ID_ID HTTP
 #>
 ######################################################################
-p6_aws_svc_alb_target_group_create() {
+p6_cirrus_alb_target_group_create() {
     local tg_name="$1"
     local vpc_id="${2:-AWS_VPC_ID_ID}"
 
