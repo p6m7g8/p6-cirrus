@@ -66,13 +66,14 @@
 
 ### p6-cirrus/lib/ec2/instance.sh
 
-- p6_cirrus_ec2_instance_connect()
-- p6_cirrus_ec2_instance_connect_ssh_public_key_send(tag, [key=$HOME/.ssh/$tag.pem])
-- p6_cirrus_ec2_instance_create(instance_name, [vpc_name=p6-lz-sandbox/VPC], [ami_name=FreeBSD 15.0-CURRENT-arm64-20241121 small UFS], [subnet_type_or_id=Private], [sg_name=p6-lz-sg-default], [instance_type=t4g.nano], [user_data=])
+- p6_cirrus_ec2_instance_connect(tag)
+- p6_cirrus_ec2_instance_connect_ssh_public_key_send(tag, [key=$HOME/.ssh/$tag])
+- p6_cirrus_ec2_instance_connect_with_key()
+- stream  = p6_cirrus_ec2_instance_create(instance_name, [vpc_name=p6-lz-sandbox/VPC], [ami_name=FreeBSD 15.0-CURRENT-arm64-20241121 small UFS], [subnet_type_or_id=Private], [sg_name=p6-lz-sg-default], [instance_type=t4g.nano], [user_data=])
 
 ### p6-cirrus/lib/ec2/keypair.sh
 
-- str key_file_priv_target = p6_cirrus_ec2_keypair_import()
+- str key_name = p6_cirrus_ec2_keypair_import()
 
 ### p6-cirrus/lib/ec2/lt.sh
 

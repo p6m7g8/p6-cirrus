@@ -3,23 +3,26 @@
 ######################################################################
 #<
 #
-# Function: str key_file_priv_target = p6_cirrus_ec2_keypair_import()
+# Function: str key_name = p6_cirrus_ec2_keypair_import()
 #
 #  Returns:
-#	str - key_file_priv_target
+#	str - key_name
 #
+#  Environment:	 HOME
 #>
 ######################################################################
 p6_cirrus_ec2_keypair_import() {
-    local key_file_priv_target="$1"
+    local key_name="$1"
 
-    local key_file_pub="$key_file_priv_target.pub"
+    local prefix="$HOME/.ssh"
+    local priv_key_path="$prefix/$key_name"
+    local pub_key_path="$prefix/$key_name.pub"
 
-    p6_ssh_key_make "$key_file_priv_target"
+    p6_ssh_key_make "$priv_key_path" >/dev/null
 
     p6_aws_cli_cmd ec2 import-key-pair \
-        --key-name "$key_file_priv_target" \
-        --public-key-material fileb://$key_file_pub
+        --key-name "$key_name" \
+        --public-key-material fileb://$pub_key_path >/dev/null
 
-    p6_return_str "$key_file_priv_target"
+    p6_return_str "$key_name"
 }
