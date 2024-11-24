@@ -3,7 +3,11 @@
 ######################################################################
 #<
 #
-# Function: p6_cirrus_ec2_instance_connect()
+# Function: p6_cirrus_ec2_instance_connect(instance_id, key)
+#
+#  Args:
+#	instance_id -
+#	key -
 #
 #>
 ######################################################################
@@ -33,9 +37,6 @@ p6_cirrus_ec2_instance_allow() {
 
     p6_return_void
 }
-
-
-# shellcheck shell=bash
 
 ######################################################################
 #<

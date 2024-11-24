@@ -1,9 +1,12 @@
+# shellcheck shell=bash
+
 ######################################################################
 #<
 #
-# Function: false  = p6_cirrus_s3api_bucket_delete_with_versioned_objects(bucket)
+# Function: false  = p6_cirrus_s3api_bucket_delete_with_versioned_objects(bucket, bucket)
 #
 #  Args:
+#	bucket -
 #	bucket -
 #
 #  Returns:
