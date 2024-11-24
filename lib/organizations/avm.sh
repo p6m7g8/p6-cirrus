@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 ######################################################################
 #<
 #
@@ -90,7 +92,7 @@ p6_cirrus_organizations_avm_account_create_status() {
     local car_id="$1"
 
     local status=$(
-        p6_aws_cli_cmd organiations describe-create-account-stattus \
+        p6_aws_cli_cmd organizations describe-create-account-status \
             "$car_id" \
             --output text \
             --query "'CreateAccountStatus.State'"
