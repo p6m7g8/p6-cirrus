@@ -3,12 +3,12 @@
 ######################################################################
 #<
 #
-# Function: p6_cirrus_ec2_instance_connect()
+# Function: p6_cirrus_ec2_instance_connect_with_key()
 #
 #  Environment:	 HOME
 #>
 ######################################################################
-p6_cirrus_ec2_instance_connect() {
+p6_cirrus_ec2_instance_connect_with_key() {
     local tag="$1"
     local key="${2:-$HOME/.ssh/$tag}"
 
@@ -21,11 +21,30 @@ p6_cirrus_ec2_instance_connect() {
 ######################################################################
 #<
 #
-# Function: p6_cirrus_ec2_instance_connect_ssh_public_key_send(tag, [key=$HOME/.ssh/$tag.pem])
+# Function: p6_cirrus_ec2_instance_connect(tag)
 #
 #  Args:
 #	tag -
-#	OPTIONAL key - [$HOME/.ssh/$tag.pem]
+#
+#>
+######################################################################
+p6_cirrus_ec2_instance_connect() {
+    local tag="$1"
+
+    local instance_id=$(p6_aws_svc_ec2_instance_id_from_name_tag "$tag")
+    p6_macosx_osa_iterm_color_run "$tag" "p6_aws_cli_cmd ec2-instance-connect ssh --instance-id $instance_id"
+
+    p6_return_void
+}
+
+######################################################################
+#<
+#
+# Function: p6_cirrus_ec2_instance_connect_ssh_public_key_send(tag, [key=$HOME/.ssh/$tag])
+#
+#  Args:
+#	tag -
+#	OPTIONAL key - [$HOME/.ssh/$tag]
 #
 #  Environment:	 HOME
 #>
@@ -51,7 +70,7 @@ p6_cirrus_ec2_instance_connect_ssh_public_key_send() {
 ######################################################################
 #<
 #
-# Function: p6_cirrus_ec2_instance_create(instance_name, [vpc_name=p6-lz-sandbox/VPC], [ami_name=FreeBSD 15.0-CURRENT-arm64-20241121 small UFS], [subnet_type_or_id=Private], [sg_name=p6-lz-sg-default], [instance_type=t4g.nano], [user_data=])
+# Function: stream  = p6_cirrus_ec2_instance_create(instance_name, [vpc_name=p6-lz-sandbox/VPC], [ami_name=FreeBSD 15.0-CURRENT-arm64-20241121 small UFS], [subnet_type_or_id=Private], [sg_name=p6-lz-sg-default], [instance_type=t4g.nano], [user_data=])
 #
 #  Args:
 #	instance_name -
@@ -61,6 +80,9 @@ p6_cirrus_ec2_instance_connect_ssh_public_key_send() {
 #	OPTIONAL sg_name - [p6-lz-sg-default]
 #	OPTIONAL instance_type - [t4g.nano]
 #	OPTIONAL user_data - []
+#
+#  Returns:
+#	stream - 
 #
 #  Environment:	 BSD VPC
 #>
@@ -75,20 +97,20 @@ p6_cirrus_ec2_instance_create() {
     local user_data="${7:-}"
 
     local key_name=$(p6_cirrus_ec2_keypair_import "$instance_name")
-    local ami_id=$(p6_aws_svc_ec2_ami_id_from_name "$ami_name")
+    local ami_id=$(p6_aws_svc_ec2_ami_find_id "$ami_name")
     local vpc_id=$(p6_aws_svc_ec2_vpc_id_from_vpc_name "$vpc_name")
     local subnet_id=$(p6_aws_svc_ec2_subnet_get "$subnet_type_or_id" "$vpc_id")
     local sg_id=$(p6_aws_svc_ec2_sg_id_from_sg_tag "$sg_name" "$vpc_id")
 
-    p6_aws_cli_cmd run-instances \
+    p6_aws_cli_cmd ec2 run-instances \
         --output json \
         --key-name "$key_name" \
         --image-id "$ami_id" \
         --instance-type "$instance_type" \
         --security-group-ids "$sg_id" \
         --subnet-id "$subnet_id" \
-        --user-data "$user_data" \
         --tag-specifications "'ResourceType=instance,Tags=[{Key=Name,Value=$instance_name}]'"
+        # --user-data "$user_data" \
 
     p6_return_stream
 }
