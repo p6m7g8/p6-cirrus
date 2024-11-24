@@ -89,7 +89,7 @@ p6_cirrus_ec2_instance_connect_ssh_public_key_send() {
 ######################################################################
 p6_cirrus_ec2_instance_create() {
     local instance_name="$1"
-    local vpc_name="${2:-p6-lz-sandbox/VPC}"
+    local vpc_name="${2:-p6-lz-sandbox/P6LzVpc/VPC}"
     local ami_name="${3:-FreeBSD 15.0-CURRENT-arm64-20241121 small UFS}"
     local subnet_type_or_id="${4:-Private}"
     local sg_name="${5:-p6-lz-sg-default}"
