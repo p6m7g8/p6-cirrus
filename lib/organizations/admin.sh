@@ -2,7 +2,7 @@
 ######################################################################
 #<
 #
-# Function: p6_aws_svc_organizations_admin_delegate_register(account_id, service)
+# Function: p6_cirrus_organizations_admin_delegate_register(account_id, service)
 #
 #  Args:
 #	account_id -
@@ -10,7 +10,7 @@
 #
 #>
 ######################################################################
-p6_aws_svc_organizations_admin_delegate_register() {
+p6_cirrus_organizations_admin_delegate_register() {
     local account_id="$1"
     local service="$2"
 
@@ -22,7 +22,7 @@ p6_aws_svc_organizations_admin_delegate_register() {
 ######################################################################
 #<
 #
-# Function: p6_aws_svc_organizations_admin_delegate_deregister(account_id, service)
+# Function: p6_cirrus_organizations_admin_delegate_deregister(account_id, service)
 #
 #  Args:
 #	account_id -
@@ -30,7 +30,7 @@ p6_aws_svc_organizations_admin_delegate_register() {
 #
 #>
 ######################################################################
-p6_aws_svc_organizations_admin_delegate_deregister() {
+p6_cirrus_organizations_admin_delegate_deregister() {
     local account_id="$1"
     local service="$2"
 
@@ -42,14 +42,14 @@ p6_aws_svc_organizations_admin_delegate_deregister() {
 ######################################################################
 #<
 #
-# Function: p6_aws_svc_organization_services_disable(service)
+# Function: p6_cirrus_organization_services_disable(service)
 #
 #  Args:
 #	service -
 #
 #>
 ######################################################################
-p6_aws_svc_organization_services_disable() {
+p6_cirrus_organization_services_disable() {
     local service="$1"
 
     p6_aws_cli_cmd organizations disable-aws-service-access --service-principal "$service" || true

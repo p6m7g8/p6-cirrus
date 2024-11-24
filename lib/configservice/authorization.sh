@@ -3,11 +3,11 @@
 ######################################################################
 #<
 #
-# Function: p6_aws_svc_configservice_aggregation_authorization_put()
+# Function: p6_cirrus_configservice_aggregation_authorization_put()
 #
 #>
 ######################################################################
-p6_aws_svc_configservice_aggregation_authorization_put() {
+p6_cirrus_configservice_aggregation_authorization_put() {
     local account_id="$1"
     local region="$2"
 
@@ -19,7 +19,7 @@ p6_aws_svc_configservice_aggregation_authorization_put() {
 ######################################################################
 #<
 #
-# Function: p6_aws_svc_configservice_aggregation_authorization_delete(account_id, region)
+# Function: p6_cirrus_configservice_aggregation_authorization_delete(account_id, region)
 #
 #  Args:
 #	account_id -
@@ -27,7 +27,7 @@ p6_aws_svc_configservice_aggregation_authorization_put() {
 #
 #>
 ######################################################################
-p6_aws_svc_configservice_aggregation_authorization_delete() {
+p6_cirrus_configservice_aggregation_authorization_delete() {
     local account_id="$1"
     local region="$2"
 
