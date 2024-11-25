@@ -31,8 +31,10 @@ p6_cirrus_cloudtrail_trail_logging_start() {
 p6_cirrus_cloudtrail_trail_delete() {
   local prefix="$1"
 
-  local trail_arn=$(p6_aws_svc_cloudtrail_trail_arns)
-  p6_aws_cli_cmd cloudtrail delete-trail --name "$trail_arn"
+  local trail_arn=$(p6_aws_svc_cloudtrail_trail_arns "$prefix")
+  if ! p6_string_blank "$trail_arn"; then
+    p6_aws_cli_cmd cloudtrail delete-trail --name "$trail_arn"
+  fi
 
   p6_return_void
 }
