@@ -13,7 +13,9 @@ p6_cirrus_cloudtrail_trail_logging_start() {
   local prefix="$1"
 
   local trail_arn=$(p6_aws_svc_cloudtrail_trail_arns "$prefix")
-  p6_aws_cli_cmd cloudtrail start-logging --name "$trail_arn"
+  if ! p6_string_blank "$trail_arn"; then
+    p6_aws_cli_cmd cloudtrail start-logging --name "$trail_arn"
+  fi
 
   p6_return_void
 }
