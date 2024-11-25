@@ -126,7 +126,7 @@ p6_cirrus_securityhub_aggregator_delete() {
 
     local arn=$(p6_aws_svc_securityhub_aggregator_arn)
     if ! p6_string_blank "$arn"; then
-      p6_aws_cli_cmd securityhub delete-finding-aggregator --finding-aggregator-arn "$arn"
+        p6_aws_cli_cmd securityhub delete-finding-aggregator --finding-aggregator-arn "$arn"
     fi
 
     p6_return_void
@@ -142,7 +142,7 @@ p6_cirrus_securityhub_aggregator_delete() {
 ######################################################################
 p6_cirrus_securityhub_organization_config_update() {
 
-    p6_aws_cli_cmd securityhub update-organization-configuration  --organization-configuration ConfigurationType=LOCAL --no-auto-enable
+    p6_aws_cli_cmd securityhub update-organization-configuration --organization-configuration ConfigurationType=LOCAL --no-auto-enable
 
     p6_return_void
 }
