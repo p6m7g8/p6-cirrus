@@ -1,0 +1,23 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5.0.0
+        with:
+          fetch-depth: 0
+      - name: Release
+        id: release
+        uses: p6m7g8-actions/p6-gh-release@main
+        with:
+          gh_token: ${{ secrets.P6_A_GH_TOKEN }}
