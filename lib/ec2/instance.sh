@@ -70,11 +70,11 @@ p6_cirrus_ec2_instance_connect_ssh_public_key_send() {
 ######################################################################
 #<
 #
-# Function: stream  = p6_cirrus_ec2_instance_create(instance_name, [vpc_name=p6-lz-sandbox/VPC], [ami_name=FreeBSD 15.0-CURRENT-arm64-20241121 small UFS], [subnet_type_or_id=Private], [sg_name=p6-lz-sg-default], [instance_type=t4g.nano], [user_data=])
+# Function: stream  = p6_cirrus_ec2_instance_create(instance_name, [vpc_name=p6-lz-sandbox/P6LzVpc/VPC], [ami_name=FreeBSD 15.0-CURRENT-arm64-20241121 small UFS], [subnet_type_or_id=Private], [sg_name=p6-lz-sg-default], [instance_type=t4g.nano], [user_data=])
 #
 #  Args:
 #	instance_name -
-#	OPTIONAL vpc_name - [p6-lz-sandbox/VPC]
+#	OPTIONAL vpc_name - [p6-lz-sandbox/P6LzVpc/VPC]
 #	OPTIONAL ami_name - [FreeBSD 15.0-CURRENT-arm64-20241121 small UFS]
 #	OPTIONAL subnet_type_or_id - [Private]
 #	OPTIONAL sg_name - [p6-lz-sg-default]
@@ -84,7 +84,7 @@ p6_cirrus_ec2_instance_connect_ssh_public_key_send() {
 #  Returns:
 #	stream - 
 #
-#  Environment:	 BSD VPC
+#  Environment:	 BSD P6L
 #>
 ######################################################################
 p6_cirrus_ec2_instance_create() {
