@@ -8,7 +8,7 @@
 #	OPTIONAL subnet_type - [Public]
 #	OPTIONAL vpc_id - [$AWS_VPC_ID_ID]
 #
-#  Environment:	 AWS_VPC_ID_ID XXX
+#  Environment:	 AWS_VPC_ID_ID
 #>
 ######################################################################
 p6_cirrus_alb_create() {
@@ -34,7 +34,6 @@ p6_cirrus_alb_create() {
 #	alb_arn -
 #	target_group_arn -
 #
-#  Environment:	 HTTP
 #>
 ######################################################################
 p6_cirrus_alb_listener_create() {
@@ -61,7 +60,6 @@ p6_cirrus_alb_listener_create() {
 #	tg_name -
 #	OPTIONAL vpc_id - [AWS_VPC_ID_ID]
 #
-#  Environment:	 AWS_VPC_ID_ID HTTP
 #>
 ######################################################################
 p6_cirrus_alb_target_group_create() {

@@ -137,7 +137,6 @@ p6_cirrus_securityhub_aggregator_delete() {
 #
 # Function: p6_cirrus_securityhub_organization_config_update()
 #
-#  Environment:	 LOCAL
 #>
 ######################################################################
 p6_cirrus_securityhub_organization_config_update() {
