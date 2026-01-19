@@ -100,7 +100,6 @@ p6_cirrus_inspector_role_service_linked_create() {
 #
 # Function: p6_cirrus_inspector_role_service_linked_delete()
 #
-#  Environment:	 AWSS
 #>
 ######################################################################
 p6_cirrus_inspector_role_service_linked_delete() {
@@ -154,7 +153,6 @@ p6_cirrus_inspector_member_remove() {
 #  Args:
 #	account_ids -
 #
-#  Environment:	 EC2 ECR LAMBDA LAMBDA_CODE
 #>
 ######################################################################
 p6_cirrus_inspector_resource_scanning_enable() {
@@ -176,7 +174,6 @@ p6_cirrus_inspector_resource_scanning_enable() {
 #  Args:
 #	account_ids -
 #
-#  Environment:	 EC2 ECR LAMBDA LAMBDA_CODE
 #>
 ######################################################################
 p6_cirrus_inspector_resource_scanning_disable() {

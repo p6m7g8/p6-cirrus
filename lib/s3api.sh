@@ -11,7 +11,6 @@
 #	false - 
 #	code - rc
 #
-#  Environment:	 EOF
 #>
 ######################################################################
 p6_cirrus_s3api_bucket_delete_with_versioned_objects() {

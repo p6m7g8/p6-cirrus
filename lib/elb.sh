@@ -9,7 +9,7 @@
 #	OPTIONAL subnet_type - [Public]
 #	OPTIONAL vpc_id - [$AWS_VPC_ID]
 #
-#  Environment:	 AWS_VPC_ID XXX
+#  Environment:	 AWS_VPC_ID
 #>
 ######################################################################
 p6_cirrus_elb_create() {

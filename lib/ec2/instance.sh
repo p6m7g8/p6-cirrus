@@ -84,7 +84,6 @@ p6_cirrus_ec2_instance_connect_ssh_public_key_send() {
 #  Returns:
 #	stream - 
 #
-#  Environment:	 BSD P6L
 #>
 ######################################################################
 p6_cirrus_ec2_instance_create() {

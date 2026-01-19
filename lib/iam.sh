@@ -9,7 +9,6 @@
 #	account_id -
 #	provider -
 #
-#  Environment:	 XXX
 #>
 ######################################################################
 p6_cirrus_iam_role_saml_create() {

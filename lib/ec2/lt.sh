@@ -10,7 +10,6 @@
 #	sg_ids -
 #	key_name -
 #
-#  Environment:	 ASSOCIATE_PUBLIC_IP_ADDRESS DELETE_ON_TERMINATE IMAGE_ID INSTANCE_TYPE KEY_NAME SECURITY_GROUPS TAG_NAME
 #>
 ######################################################################
 p6_cirrus_ec2_launch_template_create() {

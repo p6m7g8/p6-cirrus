@@ -11,7 +11,6 @@
 #  Returns:
 #	str - key_id
 #
-#  Environment:	 ACCOUNT_ID KEY_ADMIN_PRINCIPALS KEY_USER_PRINCIPALS SSO
 #>
 ######################################################################
 p6_cirrus_kms_key_make() {
