@@ -3,7 +3,11 @@
 ######################################################################
 #<
 #
-# Function: p6_cirrus_ec2_instance_connect_with_key()
+# Function: p6_cirrus_ec2_instance_connect_with_key(tag, [key=$HOME/.ssh/$tag])
+#
+#  Args:
+#	tag -
+#	OPTIONAL key - [$HOME/.ssh/$tag]
 #
 #  Environment:	 HOME
 #>

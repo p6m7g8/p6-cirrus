@@ -109,7 +109,7 @@ p6_cirrus_securityhub_admin_disable() {
 ######################################################################
 p6_cirrus_securityhub_members_remove() {
 
-    local account_ids=$(p6_aws_svc_organizations_accounts_list_active | awk '{print $1}' | xargs)
+    local account_ids=$(p6_aws_svc_organizations_accounts_list_active | p6_filter_column_pluck 1 | xargs)
     p6_aws_cli_cmd securityhub disassociate-members --account-ids "$account_ids"
 
     p6_return_void

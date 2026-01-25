@@ -32,7 +32,7 @@ p6_cirrus_logs_groups_prefix_delete() {
         return
     fi
 
-    local log_group_names=$(p6_aws_svc_logs_groups_list | awk -v prefix="$prefix" '$2 ~ prefix {print $2}')
+    local log_group_names=$(p6_aws_svc_logs_groups_list | p6_filter_column_pluck 2 | p6_filter_row_select "$prefix")
 
     local log_group_name
     for log_group_name in $(p6_echo $log_group_names); do
