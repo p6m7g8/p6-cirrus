@@ -19,7 +19,7 @@ p6_cirrus_ec2_launch_template_create() {
 	local sg_ids="$4"
 	local key_name="$5"
 
-	[ -n "$user_data" ] && user_data="--user-data=$user_data"
+        p6_string_blank_NOT "$user_data" && user_data="--user-data=$user_data"
 
 	local launch_template_data=$(p6_aws_template_process "ec2/launch_configuration.json" \
 			"ASSOCIATE_PUBLIC_IP_ADDRESS=true" \
