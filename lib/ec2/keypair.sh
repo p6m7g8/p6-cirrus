@@ -3,7 +3,10 @@
 ######################################################################
 #<
 #
-# Function: str key_name = p6_cirrus_ec2_keypair_import()
+# Function: str key_name = p6_cirrus_ec2_keypair_import(key_name)
+#
+#  Args:
+#	key_name -
 #
 #  Returns:
 #	str - key_name

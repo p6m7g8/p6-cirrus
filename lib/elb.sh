@@ -33,7 +33,7 @@ p6_cirrus_elb_create() {
         my_listeners="Protocol=http,LoadBalancerPort=80,InstanceProtocol=http,InstancePort=8000"
         ;;
     https)
-        local certificate_id=$(echo $listener | cut -f 2 -d ':')
+        local certificate_id=$(echo $listener | p6_filter_column_pluck 2 ":")
         my_listeners="Protocol=https,LoadBalancerPort=443,InstanceProtocol=http,InstancePort=80,CertificateId=$certificate_id"
         ;;
     httpstohttps)

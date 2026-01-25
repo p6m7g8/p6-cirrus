@@ -24,8 +24,8 @@ p6_cirrus_lambda_invoke() {
 
     if p6_file_exists "$outfile"; then
         p6_file_display "$outfile" | python -mjson.tool
-        p6_file_display $dir/response | awk '/ExecutedVersion/ { print $2 }' | sed -e 's,",,g'
-        p6_file_display $dir/response | awk '/LogResult/ { print $2 }' | sed -e 's,",,g' | python -m base64 -d
+        p6_file_display $dir/response | p6_filter_row_select "ExecutedVersion" | p6_filter_column_pluck 2 | p6_filter_double_quote_strip
+        p6_file_display $dir/response | p6_filter_row_select "LogResult" | p6_filter_column_pluck 2 | p6_filter_double_quote_strip | python -m base64 -d
     fi
 
     p6_return_void

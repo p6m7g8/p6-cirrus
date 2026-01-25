@@ -3,7 +3,11 @@
 ######################################################################
 #<
 #
-# Function: p6_cirrus_configservice_aggregation_authorization_put()
+# Function: p6_cirrus_configservice_aggregation_authorization_put(account_id, region)
+#
+#  Args:
+#	account_id -
+#	region -
 #
 #>
 ######################################################################

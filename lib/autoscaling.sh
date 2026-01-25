@@ -28,7 +28,7 @@ p6_cirrus_autoscaling_asg_create() {
     local subnet_type="$8"
     local vpc_id="${9:-$AWS_VPC_ID}"
 
-    local subnet_ids=$(p6_cirrus_ec2_subnet_ids_get "$subnet_type" "$vpc_id" | xargs | sed -e 's/ /,/g')
+    local subnet_ids=$(p6_cirrus_ec2_subnet_ids_get "$subnet_type" "$vpc_id" | xargs | p6_filter_replace " " ",")
 
     p6_aws_cli_cmd autoscaling create-auto-scaling-group \
         "$asg_name" "$min_size" "$max_size" \
