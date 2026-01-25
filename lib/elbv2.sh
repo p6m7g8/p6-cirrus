@@ -66,7 +66,7 @@ p6_cirrus_alb_target_group_create() {
     local tg_name="$1"
     local vpc_id="${2:-AWS_VPC_ID_ID}"
 
-    if [ -n "$vpc_id" ]; then
+    if p6_string_blank_NOT "$vpc_id"; then
         vpc_id="--vpc-id $vpc_id"
     else
         # lambda
